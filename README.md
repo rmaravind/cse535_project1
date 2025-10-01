@@ -1,5 +1,26 @@
 # cse535_project1
 Android App - Context Monitoring
+Raja Aravind Reddy Manimala
+1233152507
+Generative AI Acknowledgment: Portions of the code in this project were generated with assistance from ChatGPT, an AI tool developed by OpenAI. 
+Reference: OpenAI. (2024). ChatGPT [Large language model]. openai.com/chatgpt
+* Estimated percentage of code influenced by Generative AI: ~10% (Also including the XML files for activity_symptoms.xml)
+
+# Generative AI Used: ChatGPT (OpenAI, September 24, 2025)
+# Purpose: Needed help writing a spinner for drop down
+# Prompt: "How to create a dropdown for the symptoms for the user to choose from [list of symptoms]"
+
+val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, symptoms)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        symptomSpinner.adapter = adapter
+addSymptomBtn.setOnClickListener {
+            val selectedSymptom = symptomSpinner.selectedItem.toString()
+            val rating = ratingSeekBar.progress
+            symptomRatings[selectedSymptom] = rating
+            updateSymptomsDisplay(symptomsListText)
+            Toast.makeText(this, "Added $selectedSymptom with rating $rating", Toast.LENGTH_SHORT).show()
+        }
+
 
 1) Writing thousands of lines of code for sensors and smartphones, especially when your knowledge of programming is limited feels almost impossible. That’s where Health-Dev comes into play, a framework that helps people automatically generate code for health monitoring systems. Instead of writing the code from scratch, we just need to give Health-Dev the right specifications, and it will build the system.
 To use Health-Dev, the first thing to do is to provide the sensor specifications. This means telling the framework what kind of sensors the app will use. For example, if one wants to measure heart rate, one would pick an ECG sensor. If one wants temperature or humidity, they would pick those corresponding sensors. We also need to specify how often the sensor collects data, what platform it runs on (like Shimmer or Arduino), and which algorithms should be used to process the signals. Health-Dev already has a library of algorithms, like peak detection for ECG or correlation for temperature and humidity.
